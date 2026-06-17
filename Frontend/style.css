@@ -1,0 +1,352 @@
+/* ================================
+   RESET & BASE
+   ================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  padding: 24px;
+}
+
+
+/* ================================
+   APP LAYOUT
+   ================================ */
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+
+/* ================================
+   HEADER
+   ================================ */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.header h1 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.app-count {
+  font-size: 13px;
+  color: #888;
+}
+
+
+/* ================================
+   STATS DASHBOARD
+   ================================ */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.stat {
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Status colors for stat numbers */
+.stat-value.applied   { color: #1a6fbd; }
+.stat-value.interview { color: #b06c00; }
+.stat-value.offer     { color: #2e7d32; }
+.stat-value.rejected  { color: #c0392b; }
+
+
+/* ================================
+   TOOLBAR (FILTERS + ADD BUTTON)
+   ================================ */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+  align-items: center;
+}
+
+.filter-btn {
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #555;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.filter-btn:hover {
+  background: #f0f0f0;
+}
+
+.filter-btn.active {
+  background: #eaeaea;
+  border-color: #aaa;
+  color: #111;
+  font-weight: 500;
+}
+
+.add-btn {
+  margin-left: auto;
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 7px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.add-btn:hover {
+  background: #111;
+}
+
+
+/* ================================
+   TABLE
+   ================================ */
+.table-wrap {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+thead th {
+  background: #f9f9f9;
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 12px;
+  color: #888;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+tbody td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: middle;
+  color: #333;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover td {
+  background: #fafafa;
+}
+
+.notes-cell {
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #888;
+}
+
+
+/* ================================
+   STATUS BADGES
+   ================================ */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.badge-wishlist  { background: #eeecff; color: #4a3fbf; }
+.badge-applied   { background: #e3f0fc; color: #1a5fa0; }
+.badge-interview { background: #fff3e0; color: #b06c00; }
+.badge-offer     { background: #e8f5e9; color: #2e7d32; }
+.badge-rejected  { background: #fdecea; color: #c0392b; }
+
+
+/* ================================
+   ACTION BUTTONS (EDIT / DELETE)
+   ================================ */
+.action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #aaa;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.action-btn:hover {
+  color: #333;
+  background: #f0f0f0;
+}
+
+
+/* ================================
+   EMPTY STATE
+   ================================ */
+.empty-state {
+  display: none;
+  text-align: center;
+  padding: 40px;
+  color: #aaa;
+  font-size: 13px;
+}
+
+
+/* ================================
+   MODAL OVERLAY
+   ================================ */
+.modal-bg {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-bg.open {
+  display: flex;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  width: 440px;
+  max-width: 95vw;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.modal h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+
+/* ================================
+   FORM ELEMENTS
+   ================================ */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #333;
+  font-family: Arial, sans-serif;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #999;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+
+/* ================================
+   MODAL FOOTER BUTTONS
+   ================================ */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.btn-cancel {
+  background: none;
+  border: 1px solid #ddd;
+  color: #666;
+  padding: 7px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn-cancel:hover {
+  background: #f5f5f5;
+}
+
+.btn-save {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 7px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-save:hover {
+  background: #111;
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Application Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- Header -->
+    <div class="header">
+      <h1>Job Tracker</h1>
+      <span class="app-count" id="app-count"></span>
+    </div>
+
+    <!-- Stats Dashboard -->
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-label">Total</div>
+        <div class="stat-value" id="s-total">0</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Applied</div>
+        <div class="stat-value applied" id="s-applied">0</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Interview</div>
+        <div class="stat-value interview" id="s-interview">0</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Offer</div>
+        <div class="stat-value offer" id="s-offer">0</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Rejected</div>
+        <div class="stat-value rejected" id="s-rejected">0</div>
+      </div>
+    </div>
+
+    <!-- Toolbar: Filters + Add Button -->
+    <div class="toolbar">
+      <button class="filter-btn active" data-filter="All">All</button>
+      <button class="filter-btn" data-filter="Wishlist">Wishlist</button>
+      <button class="filter-btn" data-filter="Applied">Applied</button>
+      <button class="filter-btn" data-filter="Interview">Interview</button>
+      <button class="filter-btn" data-filter="Offer">Offer</button>
+      <button class="filter-btn" data-filter="Rejected">Rejected</button>
+      <button class="add-btn" id="open-modal-btn">+ Add Application</button>
+    </div>
+
+    <!-- Applications Table -->
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Date Applied</th>
+            <th>Notes</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="job-table"></tbody>
+      </table>
+      <div class="empty-state" id="empty-state">
+        No applications yet. Add your first one!
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Add / Edit Modal -->
+  <div class="modal-bg" id="modal">
+    <div class="modal">
+      <h2 id="modal-title">Add Application</h2>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="f-company">Company *</label>
+          <input type="text" id="f-company" placeholder="e.g. Google" />
+        </div>
+        <div class="form-group">
+          <label for="f-role">Role *</label>
+          <input type="text" id="f-role" placeholder="e.g. Java Developer" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="f-status">Status</label>
+          <select id="f-status">
+            <option>Wishlist</option>
+            <option selected>Applied</option>
+            <option>Interview</option>
+            <option>Offer</option>
+            <option>Rejected</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="f-date">Date Applied</label>
+          <input type="date" id="f-date" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="f-notes">Notes</label>
+        <textarea id="f-notes" placeholder="Salary range, recruiter name, next steps..."></textarea>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-cancel" id="close-modal-btn">Cancel</button>
+        <button class="btn-save" id="save-btn">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
